@@ -36,9 +36,11 @@ void MainWindow::on_btn_decrease_click()
 */
 void MainWindow::on_btn_reset_click()
 {
-    _total = 0;
-
-    show_message();
+    if (_total != 0)
+    {
+        _total = 0;
+        show_message();
+    }
 }
 
 /*
@@ -46,7 +48,7 @@ void MainWindow::on_btn_reset_click()
 */
 void MainWindow::show_message()
 {
-    _msg = Glib::ustring::sprintf("Button clicked %d times", _total);
+    _msg = Glib::ustring::sprintf("Total =  %d", _total);
 
     cout << _msg << endl;
 
