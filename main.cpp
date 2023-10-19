@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+#include <gtkmm.h>
+=======
 #include <gtkmm-3.0/gtkmm.h>
+>>>>>>> main
 #include "mainwindow.h"
 
 int main (int argc, char* argv[])
