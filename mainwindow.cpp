@@ -43,6 +43,11 @@ void MainWindow::on_btn_reset_click()
     }
 }
 
+void MainWindow::on_btn_toggle_click()
+{
+    cout << "Toggle State: " << _btnToggle->get_active() << endl;
+}
+
 /*
     Update label with message
 */
@@ -65,6 +70,7 @@ void MainWindow::initWindow()
    _btnDecrease = new Gtk::Button("Dec");
    _btnReset = new Gtk::Button("Reset");
    _messageLabel = new Gtk::Label();
+   _btnToggle = new Gtk::ToggleButton("Toggle");
 
    _box = new Gtk::Box(Gtk::ORIENTATION_VERTICAL, 10);
    _box->set_margin_left(50);
@@ -87,12 +93,16 @@ void MainWindow::initWindow()
    _btnReset->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::on_btn_reset_click));
    _btnReset->show();
 
+    _btnToggle->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::on_btn_toggle_click));
+   _btnToggle->show();
+
    _messageLabel->set_size_request(100, 100);
    _messageLabel->show();
 
    _box->add(*_btnIncrease);
    _box->add(*_btnDecrease);
    _box->add(*_btnReset);
+   _box->add(*_btnToggle);
    _box->add(*_messageLabel);
    _box->show();
 
